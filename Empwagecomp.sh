@@ -5,24 +5,23 @@ echo "welcome to employee wage computation program on master branch ";
 
 
 #!/bin/bash
+
 ispresent=1;
 ispart_time=2;
-random=$((RANDOM%3))
-wage_per_hr=20;
+emp_per_hr_rate=20;
+emp_check=$((RANDOM%3))
 
-if [ $random -eq $ispresent ]
-then
-    work_hr=8
-
-elif [ $random -eq $ispart_time ]
-then 
-     work_hr=4
-     
-else
-     work_hr=0
-    echo "not present"
-
-fi
-salary=$(($wage_per_hr*$work_hr))
-echo "the salary of the employee is: "$salary;
+case $emp_check in
+        $ispresent)
+           emp_hr=8
+           ;;
+        $ispart_time)
+           emp_hr=4
+           ;;
+        *)
+            emp_hr=0
+            ;;
+esac
+salary=$(($emp_per_hr_rate*$emp_hr))
+echo "employee salary: "$salary "USD"
 
