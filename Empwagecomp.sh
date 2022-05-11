@@ -5,11 +5,15 @@ echo "welcome to employee wage computation program on master branch ";
 
 
 ispresent=1;
+wage_per_hrs=20;
+full_day=8;
 random=$((RANDOM%2))
-if [ $random -eq $ispresent ]
+if [ $ispresent -eq $random ]
 then
-    echo "employee is present";
+    salary=$(($wage_per_hrs*$full_day))
+    echo "salary of the full day is: " $salary;
 else
-    echo "employee is abscent";
+    salary=0
+    echo "the employee is abscent: "
 
 fi
