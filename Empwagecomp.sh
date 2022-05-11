@@ -4,16 +4,25 @@ echo "welcome to employee wage computation program on master branch ";
 
 
 
+#!/bin/bash
 ispresent=1;
-wage_per_hrs=20;
-full_day=8;
-random=$((RANDOM%2))
-if [ $ispresent -eq $random ]
+ispart_time=2;
+random=$((RANDOM%3))
+wage_per_hr=20;
+
+if [ $random -eq $ispresent ]
 then
-    salary=$(($wage_per_hrs*$full_day))
-    echo "salary of the full day is: " $salary;
+    work_hr=8
+
+elif [ $random -eq $ispart_time ]
+then 
+     work_hr=4
+     
 else
-    salary=0
-    echo "the employee is abscent: "
+     work_hr=0
+    echo "not present"
 
 fi
+salary=$(($wage_per_hr*$work_hr))
+echo "the salary of the employee is: "$salary;
+
